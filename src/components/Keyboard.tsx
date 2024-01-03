@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { GameContext } from './context/GameContext'
-import { getUserData, updateUser } from '../firebase'
-import { UserContext } from './context/UserContext'
+import { updateUser } from '../firebase'
+
 
 export const Keyboard = () => {
     const gameData = useContext(GameContext)
-    const userData = useContext(UserContext)
+
     const validateLetter = (letter: string) => {
         if(gameData.game?.wrongLetters.length == 6 || gameData.game?.correctLetters.length == gameData.game?.currentWord?.length){
             return
@@ -15,7 +15,7 @@ export const Keyboard = () => {
             if(gameData.game){
                 if(gameData.game?.wrongLetters.length == 5){
                     gameData.setGame({...gameData.game, wrongLetters: [...gameData.game?.wrongLetters, letter], loses: gameData.game.loses + 1})
-                    updateUser(gameData.game.wins, gameData.game.loses + 1, gameData, userData)
+                    updateUser(gameData.game.wins, gameData.game.loses + 1)
                     // getUserData(gameData, userData)
                 }else{
                     gameData.setGame({...gameData.game, wrongLetters: [...gameData.game?.wrongLetters, letter]})
@@ -32,7 +32,7 @@ export const Keyboard = () => {
             if(gameData.game){
                 if(gameData.game?.correctLetters.length == gameData.game?.currentWord?.length as number - 1){
                     gameData.setGame({...gameData.game, correctLetters: [...gameData.game.correctLetters, correctLetter], currentWord: newWord, wins: gameData.game.wins + 1})
-                    updateUser(gameData.game.wins + 1, gameData.game.loses, gameData, userData)
+                    updateUser(gameData.game.wins + 1, gameData.game.loses)
                     // getUserData(gameData, userData)
                 }else{
                     gameData.setGame({...gameData.game, correctLetters: [...gameData.game.correctLetters, correctLetter], currentWord: newWord})

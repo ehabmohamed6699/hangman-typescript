@@ -83,7 +83,7 @@ export const getAllUsersStats = async () => {
     return data;
 }
 
-export const updateUser = async (wins: number, loses: number, gameData: GameContextType, userData: UserContextType) => {
+export const updateUser = async (wins: number, loses: number) => {
     const userRef = doc(firestore, `users/${auth.currentUser?.uid}`);
     try{
         await updateDoc(userRef, {wins: wins, loses: loses})

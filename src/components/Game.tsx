@@ -3,12 +3,12 @@ import { Button } from './atoms/Button'
 import { RiArrowLeftSLine } from "react-icons/ri";
 import { GameContext } from './context/GameContext';
 import { Gameplay } from './Gameplay';
-import { getUserData, updateUser } from '../firebase';
-import { UserContext } from './context/UserContext';
+import { updateUser } from '../firebase';
+
 
 export const Game = () => {
     const gameData = useContext(GameContext)
-    const userData = useContext(UserContext)
+
 
   return (
     <div className='flex flex-col items-center gap-8 w-full'>
@@ -19,7 +19,7 @@ export const Game = () => {
                     newLoses += 1;
                 }
                 gameData.setGame({started:false, wins:gameData.game.wins, loses: newLoses, wrongLetters: [], correctLetters: []})
-                updateUser(gameData.game.wins, newLoses, gameData, userData)
+                updateUser(gameData.game.wins, newLoses)
                 // getUserData(gameData, userData)
             }else{
                 gameData.setGame({started:false, wins:0, loses: 0, wrongLetters: [], correctLetters: []})

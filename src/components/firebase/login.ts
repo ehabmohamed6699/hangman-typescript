@@ -4,10 +4,10 @@ import { LoginData } from "../Login"
 import { notifyError, notifySuccess } from "../../App"
 
 export const loginWithUserData = (loginData: LoginData) => {
-    signInWithEmailAndPassword(auth, loginData.email, loginData.password).then((userCredentials:unknown)=>{
+    signInWithEmailAndPassword(auth, loginData.email, loginData.password).then(()=>{
         // console.log(userCredentials)
         notifySuccess("Logged in successfully")
-    }).catch((e)=>{
+    }).catch(()=>{
         notifyError("Something went wrong, please make sure you entered correct data and try again")
     })
     
