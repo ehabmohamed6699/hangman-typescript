@@ -43,13 +43,13 @@ export const Keyboard = () => {
         
       }
   return (
-    <div className='grid grid-cols-8 gap-3'>
+    <div className='grid grid-cols-8 gap-2'>
         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter, index) => {
             const disabled = gameData.game?.wrongLetters.includes(letter)
             return (<button disabled={disabled} onClick={()=>{
                 validateLetter(letter)
                 // console.log(gameData)
-            }} key={index} className={`p-3 border-2 ${disabled && "border-neutral-600 text-neutral-600"} flex items-center justify-center text-2xl cursor-pointer`}>{letter}</button>)
+            }} key={index} className={`p-2 border-2 ${disabled && "border-neutral-600 text-neutral-600"} flex items-center justify-center text-2xl cursor-pointer`}>{letter}</button>)
         })}
     </div>
   )
