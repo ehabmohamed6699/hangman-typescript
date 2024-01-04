@@ -3,6 +3,7 @@ import { GameContextProvider } from './components/context/GameContext'
 import { UserContextProvider } from './components/context/UserContext'
 import { System } from './components/System'
 import 'react-toastify/dist/ReactToastify.css'
+import { QueryClient, QueryClientProvider } from 'react-query'
 export const notifySuccess = (message: string) => {
   toast.success(message,{
     position: toast.POSITION.BOTTOM_RIGHT,
@@ -15,9 +16,11 @@ export const notifyError = (message: string) => {
     style: {background: "#333", color:"white"}
   });
 }
+
+const queryClient = new QueryClient();
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <UserContextProvider>
         <GameContextProvider>
           <System/>
@@ -25,7 +28,7 @@ function App() {
         </GameContextProvider>
       </UserContextProvider>
       <ToastContainer toastClassName={""}/>
-    </>
+    </QueryClientProvider>
   )
 }
 

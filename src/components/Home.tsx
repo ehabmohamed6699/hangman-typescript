@@ -8,10 +8,11 @@ import { FaLinkedin, FaGithub, FaFacebook} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export const newGame = (gameData: GameContextType)=>{
+  const randWord = words[Math.floor(Math.random() * words.length)].toUpperCase()
   if(gameData.game){
-      gameData.setGame({started:true, wins:gameData.game.wins, loses: gameData.game.loses, wrongLetters: [], correctLetters: [], currentWord: words[Math.floor(Math.random() * words.length)].toUpperCase()})
+      gameData.setGame({started:true, wins:gameData.game.wins, loses: gameData.game.loses, wrongLetters: [], correctLetters: [], currentWord: randWord, word: randWord})
   }else{
-      gameData.setGame({started:true, wins:0, loses: 0, wrongLetters: [], correctLetters: [], currentWord: words[Math.floor(Math.random() * words.length)].toUpperCase()})
+      gameData.setGame({started:true, wins:0, loses: 0, wrongLetters: [], correctLetters: [], currentWord: randWord, word: randWord})
   }
 }
 
@@ -20,7 +21,7 @@ export const Home = () => {
   
   return (
     <div className='flex flex-col items-center gap-8'>
-        <div className='text-5xl'>Hangman Game</div>
+        <div className='text-5xl'>Hangman Game<span className='text-xl text-red-600'>v1.0.1</span></div>
         <Hangman stage={6}/>
         <Button text='START' icon={RiArrowRightSLine} handleClick={()=>{
           newGame(gameData)

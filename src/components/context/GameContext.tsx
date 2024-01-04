@@ -10,6 +10,7 @@ type GameData = {
         index: number
         letter: string
     }[]
+    word?: string
 } 
 
 export type GameContextType = {
