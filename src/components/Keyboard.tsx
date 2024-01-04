@@ -48,7 +48,7 @@ export const Keyboard = () => {
             const disabled = gameData.game?.wrongLetters.includes(letter)
             return (<button disabled={disabled} onClick={()=>{
                 validateLetter(letter)
-                // console.log(gameData)
+                // // console.log(gameData)
             }} key={index} className={`p-2 border-2 ${disabled && "border-neutral-600 text-neutral-600"} flex items-center justify-center text-2xl cursor-pointer`}>{letter}</button>)
         })}
     </div>

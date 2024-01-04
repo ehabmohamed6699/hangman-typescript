@@ -34,7 +34,7 @@ export const System = () => {
             }else{
                 setAuthUser(null);
             }
-            // console.log("here")
+            // // console.log("here")
         })
         return () =>{
             listen();
@@ -47,7 +47,7 @@ export const System = () => {
             getAllUsersStats().then((data: UserData[])=>{
                 setAllUsersState(data)
             })
-            console.log("here")
+            // console.log("here")
         }
     }, [authUser]);
   return (

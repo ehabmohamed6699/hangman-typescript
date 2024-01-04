@@ -16,8 +16,8 @@ export const Gameplay = () => {
         queryFn: () => axios.get(`https://api.datamuse.com/words?sp=${gameData?.game?.word?.toLowerCase()}&md=d&max=1`),
         onSuccess:(data) =>{
             const defs = data?.data?.[0].defs
-            console.log(gameData?.game?.word)
-            console.log(defs[0].slice(1))
+            // console.log(gameData?.game?.word)
+            // console.log(defs[0].slice(1))
             let def = defs[0].trim()
             def = def.split(" ").slice(1).join(" ")
             setDefinition(def)

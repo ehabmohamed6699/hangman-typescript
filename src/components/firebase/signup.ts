@@ -8,7 +8,7 @@ import { notifyError, notifySuccess } from "../../App"
 
 export const signupWithUserData = (signupData: SignupData, gameData: GameContextType, userData: UserContextType) => {
     createUserWithEmailAndPassword(auth, signupData.email, signupData.password).then((userCredentials:unknown)=>{
-        // console.log(userCredentials)
+        // // console.log(userCredentials)
         createUserDocument(userCredentials, signupData).then(() => {
             getUserData(gameData, userData)
         }).catch(()=>{
