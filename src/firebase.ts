@@ -82,7 +82,7 @@ export const getAllUsersStats = async () => {
     // });
     const usersRef = collection(firestore, 'users');
     const q = query(usersRef, orderBy("wins","desc"), orderBy("loses"), limit(10));
-    console.log(q);
+    // console.log(q);
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         data.push(doc.data() as UserData)
