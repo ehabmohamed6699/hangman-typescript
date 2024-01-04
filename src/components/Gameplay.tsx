@@ -19,7 +19,7 @@ export const Gameplay = () => {
             // console.log(gameData?.game?.word)
             // console.log(defs[0].slice(1))
             let def = defs[0].trim()
-            def = def.split(" ").slice(1).join(" ")
+            // def = def.split(" ").slice(1).join(" ")
             setDefinition(def)
         }
     })

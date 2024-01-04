@@ -9,6 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export const newGame = (gameData: GameContextType)=>{
   const randWord = words[Math.floor(Math.random() * words.length)].toUpperCase()
+  // const randWord = "HERE"
   if(gameData.game){
       gameData.setGame({started:true, wins:gameData.game.wins, loses: gameData.game.loses, wrongLetters: [], correctLetters: [], currentWord: randWord, word: randWord})
   }else{
@@ -21,7 +22,7 @@ export const Home = () => {
   
   return (
     <div className='flex flex-col items-center gap-8'>
-        <div className='text-5xl'>Hangman Game<span className='text-xl text-red-600'>v1.0.1</span></div>
+        <div className='text-5xl'>Hangman Game<span className='text-xl text-red-600'>v1.0.2</span></div>
         <Hangman stage={6}/>
         <Button text='START' icon={RiArrowRightSLine} handleClick={()=>{
           newGame(gameData)
