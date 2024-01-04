@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
 import 'firebase/firestore';
 import { SignupData } from "./components/Signup";
-import { getFirestore, doc, setDoc, DocumentSnapshot, getDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, DocumentSnapshot, getDoc, getDocs, collection, updateDoc, query, orderBy, limit } from "firebase/firestore";
 import { UserData } from "./components/System";
 import { GameContextType } from "./components/context/GameContext";
 import { UserContextType } from "./components/context/UserContext";
@@ -67,17 +67,24 @@ export const getUserData = async (GameContext: GameContextType, UserContext: Use
 export const userSignout = async () => {
     signOut(auth).then(()=>{
 
-    }).catch((e)=>{
+    }).catch(()=>{
         // console.log(e)
     })
 }
 
 export const getAllUsersStats = async () => {
-    const querySnapshot = await getDocs(collection(firestore, 'users'));
+    // const querySnapshot = await getDocs();
     const data: UserData[] = []
     // data = []
+    // querySnapshot.forEach((doc) => {
+    //     // // console.log(doc.id, ' => ', doc.data());
+    //     data.push(doc.data() as UserData)
+    // });
+    const usersRef = collection(firestore, 'users');
+    const q = query(usersRef, orderBy("wins","desc"), orderBy("loses"), limit(10));
+    console.log(q);
+    const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        // // console.log(doc.id, ' => ', doc.data());
         data.push(doc.data() as UserData)
     });
     return data;
