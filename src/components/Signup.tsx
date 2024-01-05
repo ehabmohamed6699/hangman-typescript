@@ -18,7 +18,7 @@ export const Signup = () => {
     const userData = useContext(UserContext)
   return (
     <>
-    {signup ? <form className='flex flex-col gap-8 w-[30rem] items-center'>
+    {signup ? <form className='flex flex-col gap-8 w-full px-3 lg:w-[30rem] items-center'>
         <div className='text-5xl'>SIGNUP</div>
         <div className='flex flex-col w-full gap-4 items-center'>
             <div className='w-full'>

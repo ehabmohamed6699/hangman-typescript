@@ -11,7 +11,7 @@ export const Game = () => {
 
 
   return (
-    <div className='flex flex-col items-center gap-8 w-full'>
+    <div className='flex flex-col items-center gap-8 w-full min-h-screen'>
         <Button text='BACK' icon={RiArrowLeftSLine} handleClick={()=>{
             if(gameData.game){
                 let newLoses = gameData.game.loses
@@ -25,7 +25,7 @@ export const Game = () => {
                 gameData.setGame({started:false, wins:0, loses: 0, wrongLetters: [], correctLetters: []})
             }
             
-        }} className='absolute top-10 left-72 flex-row-reverse px-5 text-xl'/>
+        }} className='lg:absolute lg:top-10 lg:left-72 flex-row-reverse px-5 mt-12 lg:mt-0 text-xl'/>
         
         <Gameplay/>
     </div>

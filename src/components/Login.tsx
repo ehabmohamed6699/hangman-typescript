@@ -12,7 +12,7 @@ export type LoginData = {
 export const Login = ({setSignup}: LoginProps) => {
     const [loginData, setLoginData] = useState<LoginData>({} as LoginData)
   return (
-    <form className='flex flex-col gap-8 w-[30rem] items-center'>
+    <form className='flex flex-col gap-8 w-full px-3 lg:w-[30rem] items-center'>
         <div className='text-5xl'>LOGIN</div>
         <div className='flex flex-col w-full gap-4 items-center'>
             <div className='w-full'>

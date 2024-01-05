@@ -42,12 +42,12 @@ export const Keyboard = () => {
         
       }
   return (
-    <div className='grid grid-cols-8 gap-2'>
+    <div className='grid grid-cols-8 gap-2 lg:px-0 px-3'>
         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter, index) => {
             const disabled = gameData.game?.wrongLetters.includes(letter)
             return (<button disabled={disabled} onClick={()=>{
                 validateLetter(letter)
-            }} key={index} className={`p-2 border-2 ${disabled && "border-neutral-600 text-neutral-600"} flex items-center justify-center text-2xl cursor-pointer`}>{letter}</button>)
+            }} key={index} className={`lg:p-2 px-2 py-1 border-2 ${disabled && "border-neutral-600 text-neutral-600"} flex items-center justify-center lg:text-2xl text-xl cursor-pointer`}>{letter}</button>)
         })}
     </div>
   )

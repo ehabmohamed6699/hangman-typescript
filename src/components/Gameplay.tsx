@@ -24,8 +24,8 @@ export const Gameplay = () => {
         }
     })
   return (
-    <div className='flex flex-col gap-5 items-center w-full'>
-        <div className='w-36 h-52 border-b-4 flex items-center justify-center  relative'>
+    <div className='flex flex-col gap-5 items-center w-full lg:pt-32'>
+        <div className='w-36 h-52 border-b-4 flex items-center justify-center relative'>
             <div className='h-full w-full border-r-4 '></div>
             <div className='h-full w-full border-t-4'>
                 <div className='h-10 w-full border-r-4'></div>
@@ -34,7 +34,7 @@ export const Gameplay = () => {
                 <Hangman stage={gameData.game?.wrongLetters? gameData.game?.wrongLetters.length: 0}/>
             </div>
         </div>
-        <div className='text-lg max-w-[90rem] min-h-10 text-center'>{definition}</div>
+        <div className='lg:text-lg text-base max-w-[90rem] min-h-10 text-center'>{definition}</div>
         <div>
             <div className='w-full flex gap-2 min-h-10'>{Array(gameData.game?.currentWord?.length).fill(0).map((_, index) => {
                 let curLetter = gameData.game?.correctLetters.find(x => x.index === index)
