@@ -36,7 +36,7 @@ export const  Home = () => {
     }
 }, [authUser]);
   return (
-    <div className='flex flex-col items-center gap-8 pt-10 pb-10 lg:pb-0'>
+    <div className='flex flex-col items-center gap-8 pt-10 lg:pt-0 pb-10 lg:pb-0'>
         <div className='lg:text-5xl text-3xl'>Hangman Game<span className='lg:text-xl text-base text-red-600'>v1.0.3</span></div>
         <Hangman stage={6}/>
         <Button text='START' icon={RiArrowRightSLine} handleClick={()=>{
@@ -48,7 +48,7 @@ export const  Home = () => {
             <div>Loses: {gameData.game?.loses || 0}</div>
         </div>
         <LeaderBoard leaderboard={allUsersState}/>
-        <div className='lg:absolute lg:bottom-32 text-center flex flex-col gap-4'>
+        <div className='lg:absolute lg:bottom-10 2xl:bottom-32 text-center flex flex-col gap-4'>
           <div className=''>Made by Eng. Ehab Mohammed</div>
           <div className=''>Find more work on my <a className='underline' href='https://master--transcendent-lollipop-ee6189.netlify.app/'>Portfolio</a></div>
           <div className='flex gap-3 items-center justify-center'>Follow me on 
